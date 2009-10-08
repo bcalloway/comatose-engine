@@ -1,0 +1,13 @@
+!!!
+%html{ "xml:lang" => "en", :lang => "en", :xmlns => "http://www.w3.org/1999/xhtml" }
+  %head
+    %meta{ :content => "text/html", "charset" => "#{Comatose.config.content_type}", "http-equiv" => "Content-Type" }
+    %meta{ :name => "Generator", :content => "Comatose" }
+    %meta{ :name => "Keywords", :content => @page.keywords }
+    %title
+      = @page.title
+    %style
+      BODY { font-family: sans-serif; color: #555; }
+      h1, h2, h3, h4, h5 { font-family: serif; color: #000; }
+  %body
+    = yield
