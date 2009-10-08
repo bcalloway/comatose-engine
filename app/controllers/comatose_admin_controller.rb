@@ -18,9 +18,7 @@ class ComatoseAdminController < ApplicationController
 
   # Edit a specfic page (posts back)
   def edit
-    # Clear the page cache for this page... ?
-    # TODO: Find out why we really need to :include=>:page_photo!
-    @page = ComatosePage.find params[:id], :include => :page_photo
+    @page = ComatosePage.find params[:id]
     @root_pages = [fetch_root_page].flatten
     if request.post?
       @page.update_attributes(params[:page])

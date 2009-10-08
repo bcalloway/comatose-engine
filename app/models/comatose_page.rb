@@ -12,12 +12,9 @@
 #  - updated_on
 #  - created_on
 # 0.8
-#  - page_photo_id
 #    author_user
 class ComatosePage < ActiveRecord::Base
-
-  # 0.8 Added support for attachment_fu for PagePhotos.
-  belongs_to :page_photo
+  
   begin
     belongs_to :author_user, :classname => "User"
   rescue
@@ -27,11 +24,11 @@ class ComatosePage < ActiveRecord::Base
   # Only versions the content... Not all of the meta data or position
   acts_as_versioned :table_name=>'comatose_page_versions',
                     :if_changed =>
-                      [:title, :slug, :keywords, :body, :page_photo_id]
+                      [:title, :slug, :keywords, :body]
 
   define_option :active_mount_info, {:root => '', :index => ''}
 
-  acts_as_tree :order => "position, title", :include => :page_photo
+  acts_as_tree :order => "position, title"
   acts_as_list :scope => :parent_id
 
   #before_create :create_full_path

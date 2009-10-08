@@ -1,38 +1,7 @@
 <%= error_messages_for :page %>
-<p>
-Click this picture to change the picture for this page. Fill in the appearing form to upload the image imediately by selecting the local file, then clicking the "Upload" button. This will upload the image immediately. However, you still must click the "Save Changes" button below for it to take effect for the page.
-<div id='page_photo'>
-  <%= render :partial => "page_photos/page_photo",
-             :object => @page.page_photo %>
-</div>
-<br/>
-<br/>
-<div id="page_photo_form" style="display: none;">
-  <% form_for(:page_photo,
-              :url => formatted_page_photos_path(:format => 'js'),
-              :html => { :multipart => true, :target => 'upload_frame'}) do |f| %>
-    <%= f.file_field :uploaded_data %>
-    <%= submit_tag "Upload and Change",
-                   :onclick => "$('page_photo_form').hide(); return true;" %>
-    <a href="#" onclick="$('page_photo_form').hide(); return false;">Cancel</a>
-  <%  end %>
-</div>
-
-<iframe id='upload_frame'
-        name="upload_frame"
-        style="width:1px;height:1px;border:0px"
-        src="about:blank"></iframe>
-
-<br/>
-<br/>
 
 <% form_for :page, @page, :html => { :id => "comatose-page-form" } do |f| %>
-  <%
-  # The page_photo_input div's html gets replaced by uploading a photo.
-  %>
-  <div id="page_photo_input">
-    <%= f.hidden_field :page_photo_id %>
-  </div>
+
   <table class="page-form" cellpadding="0" cellspacing="0">
     <tr>
       <td class="label">
@@ -40,9 +9,7 @@ Click this picture to change the picture for this page. Fill in the appearing fo
       </td>
       <td class="field">
         <%= f.text_field :title, :tabindex=>1, :maxlength=>255, :size=>50 %>
-        <%= link_to_function "More...",
-                             "ComatoseEditForm.toggle_extra_fields(this)",
-                             :id => 'more-options' %>
+        <%= link_to_function "More...", "ComatoseEditForm.toggle_extra_fields(this)", :id => 'more-options' %>
       </td>
     </tr>
 
@@ -51,10 +18,7 @@ Click this picture to change the picture for this page. Fill in the appearing fo
         <label for="page_slug">Slug</label>
       </td>
       <td class="field">
-        <%= f.text_field :slug,
-                         :tabindex => 6,
-                         :maxlength => 255,
-                         :size => 50 %>
+        <%= f.text_field :slug, :tabindex => 6, :maxlength => 255, :size => 50 %>
       </td>
     </tr>
 
@@ -64,10 +28,7 @@ Click this picture to change the picture for this page. Fill in the appearing fo
         <label for="page_keywords">Keywords</label>
       </td>
       <td class="field">
-        <%= f.text_field :keywords,
-                         :tabindex => 7,
-                         :maxlength => 1000,
-                         :size => 50 %>
+        <%= f.text_field :keywords, :tabindex => 7, :maxlength => 1000, :size => 50 %>
       </td>
     </tr>
   <% end %>
@@ -113,11 +74,7 @@ Click this picture to change the picture for this page. Fill in the appearing fo
         <label for="page_filter_type">Filter</label>
       </td>
       <td class="field">
-        <%= select_tag 'page[filter_type]',
-                        options_for_select(TextFilters.all_titles.sort, @page.filter_type ||
-                          Comatose.config.default_filter),
-                        :tabindex=>3,
-                        :id=>'page_filter_type' %>
+        <%= select_tag 'page[filter_type]', options_for_select(TextFilters.all_titles.sort, @page.filter_type || Comatose.config.default_filter), :tabindex=>3, :id=>'page_filter_type' %> 
         <span class="field-help">Converts plain text into html</span>
       </td>
     </tr>
@@ -148,18 +105,8 @@ Click this picture to change the picture for this page. Fill in the appearing fo
       </div>
     <% end %>
     <div class="comatose-page-buttons">
-      <%= image_tag 'comatose/spinner.gif',
-                    :plugin => 'comatose_engine',
-                    :id=>'spinner',
-                    :align=>'absmiddle',
-                    :style=>'display:none;' %>
-        <%= button_to_function('Preview',
-                     "ComatoseEditForm.preview_content('#{
-                               url_for :controller=>controller.controller_name,
-                                     :action=>'preview', :id=>@page
-                      }')",
-                      :tabindex=>3,
-                      :id=>'preview-btn' ) if show_field? 'preview' %>
+      <%= image_tag 'comatose/spinner.gif', :plugin => 'comatose_engine', :id=>'spinner', :align=>'absmiddle', :style=>'display:none;' %>
+        <%= button_to_function('Preview', "ComatoseEditForm.preview_content('#{url_for :controller=>controller.controller_name, :action=>'preview', :id=>@page}')", :tabindex=>3, :id=>'preview-btn' ) if show_field? 'preview' %>
         &nbsp;
         <%= submit_tag ((mode == :edit) ? 'Save Changes' : 'Create Page'), :tabindex=>4 %>
         <% if @page.versions.length > 0 %>

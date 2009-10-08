@@ -14,18 +14,6 @@ class AddComatoseSupport < ActiveRecord::Migration
 
   # Schema for Comatose version 0.8+
   def self.up
-    create_table "page_photos", :force => true do |t|
-      t.string   "filename"
-      t.string   "content_type"
-      t.integer  "size"
-      t.integer  "width"
-      t.integer  "height"
-      t.integer  "parent_id"
-      t.string   "thumbnail"
-
-      t.timestamps
-    end
-
     create_table :comatose_pages, :force => true do |t|
       t.integer    "parent_id"
       t.text       "full_path",   :default => ''
@@ -40,9 +28,6 @@ class AddComatoseSupport < ActiveRecord::Migration
       t.date       "created_on"
       t.date       "updated_on"
       t.timestamps
-
-      # 0.8
-      t.references "page_photo"
       t.references "author_user"
     end
 
