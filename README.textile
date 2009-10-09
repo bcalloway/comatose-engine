@@ -151,7 +151,7 @@ Since this is Comatose, your Authorization and Admin Authorization procedures ar
 
 However, now that Comatose is an Engines Plugin, you can just mix in methods in the ComatoseController and ComatoseAdminController.
 
-## Other notes
+h3. Other notes
 
 Any views you create in your app directory will override those in `comatose_engine/app/views`.<br />
 For example, you could create `RAILS_ROOT/app/views/layouts/application.html.haml` and have that include your own stylesheets, etc.
