@@ -19,10 +19,8 @@ It's intended for simple CMS support. Comatose Engine supports
 * Page processing through Liquid or ERb
 * Engines Ready for easy installation/migration
 * Completely self-contained within plugin folder
-* Can handle uploading images and associating with a page.
 
-It's meant to be lean, mean, easily embedded, and easy to re-skin for
-existing applications.
+It's meant to be lean, mean, easily embedded, and easy to re-skin for existing applications.
 
 *Requirements:*
 * RAILS VERSION 2.3.4
@@ -71,11 +69,13 @@ h3. Getting ComatoseEngine Running
     RAILS_GEM_VERSION = '2.2.2' unless defined? RAILS_GEM_VERSION
     require File.join(File.dirname(__FILE__), 'boot')
     require File.join(File.dirname(__FILE__), '../vendor/plugins/engines/boot')
+    
     Rails::Initializer.run do |config|
       config.plugins = [:engines, :comatose_engine, :all]
       config.plugin_paths += ["#{RAILS_ROOT}/vendor/plugins/comatose_engine/engine_plugins"]
       ... Your stuff here ...
     end
+    
     #Include your application configuration below
     require "#{RAILS_ROOT}/vendor/plugins/comatose_engine/engine_config/boot.rb"
   </code></pre>
