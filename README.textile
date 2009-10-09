@@ -6,7 +6,7 @@ h3. What's different in this fork
 
 * Removed photo management, is this even necessary?
 * Rewritten with HAML and SASS support
-* Comatose-Rake-n-Bake, to autogenerate page structure based on Freemind Mind Map, "git://github.com/scullygroup/Comatose-Rake-n-Bake.git":git://github.com/scullygroup/Comatose-Rake-n-Bake.git
+* Comatose-Rake-n-Bake, to autogenerate page structure based on Freemind Mind Map, "http://github.com/scullygroup/Comatose-Rake-n-Bake":http://github.com/scullygroup/Comatose-Rake-n-Bake
 
 h3. Documentation
 
@@ -122,6 +122,8 @@ You should be able to browse to http://127.0.0.1:3000/comatose_admin and start a
 Browsing to http://127.0.0.1:3000/ will render your comatose pages if routing doesn't match any of your controllers.
 
 h3. Optional Configuration
+
+NOTE: See CONFIG for an example configuration file using AutLogic, "http://github.com/binarylogic/authlogic":http://github.com/binarylogic/authlogic
 
 To override the default configuration, you configure Comatose in your `config/environment.rb` file. Here is an example configuration block:
 <pre><code>
