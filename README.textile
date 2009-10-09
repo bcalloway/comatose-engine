@@ -68,17 +68,17 @@ h3. Getting ComatoseEngine Running
 # Delete public/index.html (if you haven't already)
 # Modify your environment.rb as indicated below:
   <pre><code>
-  # environment.rb should look something like this:
-  RAILS_GEM_VERSION = '2.2.2' unless defined? RAILS_GEM_VERSION
-  require File.join(File.dirname(__FILE__), 'boot')
-  require File.join(File.dirname(__FILE__), '../vendor/plugins/engines/boot')
-  Rails::Initializer.run do |config|
-    config.plugins = [:engines, :comatose_engine, :all]
-    config.plugin_paths += ["#{RAILS_ROOT}/vendor/plugins/comatose_engine/engine_plugins"]
-    ... Your stuff here ...
-  end
-  # Include your application configuration below
-  require "#{RAILS_ROOT}/vendor/plugins/comatose_engine/engine_config/boot.rb"
+    # environment.rb should look something like this:
+    RAILS_GEM_VERSION = '2.2.2' unless defined? RAILS_GEM_VERSION
+    require File.join(File.dirname(__FILE__), 'boot')
+    require File.join(File.dirname(__FILE__), '../vendor/plugins/engines/boot')
+    Rails::Initializer.run do |config|
+      config.plugins = [:engines, :comatose_engine, :all]
+      config.plugin_paths += ["#{RAILS_ROOT}/vendor/plugins/comatose_engine/engine_plugins"]
+      ... Your stuff here ...
+    end
+    # Include your application configuration below
+    require "#{RAILS_ROOT}/vendor/plugins/comatose_engine/engine_config/boot.rb"
   </code></pre>
 # Modify your routes.rb as indicated below:
   <pre><code>
