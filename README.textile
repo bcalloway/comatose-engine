@@ -6,7 +6,7 @@ h3. What's different in this fork
 
 * Removed photo management, is this even necessary?
 * Rewritten with HAML and SASS support
-* Added Comatose-Rake-n-Bake, to autogenerate page structure based on Freemind Mind Map, "git://github.com/scullygroup/Comatose-Rake-n-Bake.git":git://github.com/scullygroup/Comatose-Rake-n-Bake.git
+* Comatose-Rake-n-Bake, to autogenerate page structure based on Freemind Mind Map, "git://github.com/scullygroup/Comatose-Rake-n-Bake.git":git://github.com/scullygroup/Comatose-Rake-n-Bake.git
 
 h3. Documentation
 
