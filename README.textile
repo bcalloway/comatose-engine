@@ -68,7 +68,7 @@ h3. Getting ComatoseEngine Running
 # Delete public/index.html (if you haven't already)
 # Modify your environment.rb as indicated below:
   <pre><code>
-    ## environment.rb should look something like this:
+    ### environment.rb should look something like this:
     RAILS_GEM_VERSION = '2.2.2' unless defined? RAILS_GEM_VERSION
     require File.join(File.dirname(__FILE__), 'boot')
     require File.join(File.dirname(__FILE__), '../vendor/plugins/engines/boot')
@@ -77,20 +77,20 @@ h3. Getting ComatoseEngine Running
       config.plugin_paths += ["#{RAILS_ROOT}/vendor/plugins/comatose_engine/engine_plugins"]
       ... Your stuff here ...
     end
-    ## Include your application configuration below
+    ### Include your application configuration below
     require "#{RAILS_ROOT}/vendor/plugins/comatose_engine/engine_config/boot.rb"
   </code></pre>
 # Modify your routes.rb as indicated below:
   <pre><code>
-  # If you want default routes from the plugin add this after any of your own
-  # existing routes, but before the default rails routes:
+  ### If you want default routes from the plugin add this after any of your own
+  ### existing routes, but before the default rails routes:
   map.from_plugin :comatose_engine
-  # Otherwise, follow the Comatose Description for routes.
-  # map.resources "page_photos"
-  # map.comatose_admin
-  # map.comatose_root "home"
+  ### Otherwise, follow the Comatose Description for routes.
+  ### map.resources "page_photos"
+  ### map.comatose_admin
+  ### map.comatose_root "home"
 
-  # Install the default routes as the lowest priority. 
+  ### Install the default routes as the lowest priority. 
   map.connect ':controller/:action/:id'
   map.connect ':controller/:action/:id.:format'
   </code></pre>
