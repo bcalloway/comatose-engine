@@ -44,12 +44,10 @@ h3. Getting ComatoseEngine Running
   <pre><code>
   $ rails site_name (create a rails app if you don't have one already)
   </code></pre>
-
 # Install the engines plugin:
   <pre><code>
   $ script/plugin install git://github.com/lazyatom/engines.git
   </code></pre>
-
 # Put the comatose engine plugin into plugins directory (use one of the following methods): 
   ** If you're not using git, and just want to add the source files:
 
@@ -70,11 +68,8 @@ h3. Getting ComatoseEngine Running
       </code></pre>
 
       ** Make sure you rename your CE directory to `comatose_engine` (note the underscore) if it isn't named that for some reason
-
 # Create your database and modify your `config/database.yml` appropriately.
-
 # Delete public/index.html (if you haven't already)
-
 # Modify your environment.rb as indicated below:
   <pre><code>
   ##environment.rb should look something like this:
@@ -92,7 +87,6 @@ h3. Getting ComatoseEngine Running
   # Include your application configuration below
   require "#{RAILS_ROOT}/vendor/plugins/comatose_engine/engine_config/boot.rb"
   </code></pre>
-
 # Modify your routes.rb as indicated below:
   <pre><code>
   # If you want default routes from the plugin add this after any of your own
@@ -107,30 +101,25 @@ h3. Getting ComatoseEngine Running
   map.connect ':controller/:action/:id'
   map.connect ':controller/:action/:id.:format'
   </code></pre>
-
 # Generate the comatose engine migrations:
   <pre><code>
   $ script/generate plugin_migration
   </code></pre>
-
 # From the command line:
   <pre><code>
   $ rake db:migrate
   </code></pre>
-
 # You may need to change these lines in application_controller.rb (if you're not using cookie sessions):
   <pre><code>
   # See ActionController::RequestForgeryProtection for details
   # Uncomment the :secret if you're not using the cookie session store
   protect_from_forgery # :secret => 'your_secret_string'
   </code></pre>
-
 # Run tests (remember, you must run `rake test` before you can run the comatose\_engine tests):
   <pre><code>
       $ rake test
   		$ rake comatose_engine:test
   </code></pre>
-
 # Start your server and check out your site!
   <pre><code>
   		$ mongrel_rails start
