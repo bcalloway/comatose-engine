@@ -1,0 +1,3 @@
+[submodule "tasks/comatose-rake-n-bake"]
+	path = tasks/comatose-rake-n-bake
+	url = git://github.com/scullygroup/Comatose-Rake-n-Bake.git
