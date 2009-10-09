@@ -136,8 +136,6 @@ Since this is Comatose, your Authorization and Admin Authorization procedures ar
   Comatose.configure do |config|  
     #Includes AuthenticationSystem in the ComatoseController
     config.includes << :authenticated_system
-    
-    #admin
     config.admin_title = "Comatose - TESTING"
     config.admin_sub_title = "Content for the rest of us..."
     
