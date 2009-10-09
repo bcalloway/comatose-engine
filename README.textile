@@ -80,8 +80,7 @@ h3. Getting ComatoseEngine Running
     require "#{RAILS_ROOT}/vendor/plugins/comatose_engine/engine_config/boot.rb"
   </code></pre>
 # Modify your routes.rb as indicated below:
-  <pre><code>
-   # If you want default routes from the plugin add this after any of your own
+   <pre><code># If you want default routes from the plugin add this after any of your own
    # existing routes, but before the default rails routes:
   map.from_plugin :comatose_engine
    # Otherwise, follow the Comatose Description for routes.
