@@ -87,6 +87,7 @@ h3. Getting ComatoseEngine Running
      #map.resources "page_photos"
      #map.comatose_admin
      #map.comatose_root "home"
+     #
      #Install the default routes as the lowest priority. 
      map.connect ':controller/:action/:id'
      map.connect ':controller/:action/:id.:format'
