@@ -101,20 +101,20 @@ h3. Getting ComatoseEngine Running
   </code></pre>
 # You may need to change these lines in application_controller.rb (if you're not using cookie sessions):
   <pre><code>
-  # See ActionController::RequestForgeryProtection for details
-  # Uncomment the :secret if you're not using the cookie session store
-  protect_from_forgery # :secret => 'your_secret_string'
+    #See ActionController::RequestForgeryProtection for details
+    #Uncomment the :secret if you're not using the cookie session store
+    protect_from_forgery # :secret => 'your_secret_string'
   </code></pre>
 # Run tests (remember, you must run `rake test` before you can run the comatose\_engine tests):
   <pre><code>
-      $ rake test
-  		$ rake comatose_engine:test
+    $ rake test
+    $ rake comatose_engine:test
   </code></pre>
 # Start your server and check out your site!
   <pre><code>
-  		$ mongrel_rails start
-  		or
-  		$ ./script/server
+    $ mongrel_rails start
+    or
+    $ ./script/server
   </code></pre>
 
 You should be able to browse to http://127.0.0.1:3000/comatose_admin and start adding pages to your CMS.<br />
