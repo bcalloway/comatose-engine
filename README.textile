@@ -40,102 +40,102 @@ You may have to remove them if they conflict with other versions that you are us
 h3. Getting ComatoseEngine Running
 
 # From the command line
-<pre><code>
-$ rails site_name (create a rails app if you don't have one already)
-</code></pre>
+  <pre><code>
+  $ rails site_name (create a rails app if you don't have one already)
+  </code></pre>
 
 # Install the engines plugin:
-<pre><code>
-$ script/plugin install git://github.com/lazyatom/engines.git
-</code></pre>
+  <pre><code>
+  $ script/plugin install git://github.com/lazyatom/engines.git
+  </code></pre>
 
 # Put the comatose engine plugin into plugins directory (use one of the following methods): 
-## If you're not using git, and just want to add the source files:
+  ** If you're not using git, and just want to add the source files:
 
-<pre><code>
-Download a tarball from https://github.com/polar/comatose-engine/tarball/master and unpack it into /vendor/plugins/comatose\_engine
-</code></pre>
+    <pre><code>
+    Download a tarball from https://github.com/polar/comatose-engine/tarball/master and unpack it into /vendor/plugins/comatose\_engine
+    </code></pre>
 
-## Using git, make a shallow clone of the comatose_engine repository:
-<pre><code>
-$ git clone --depth 1 git://github.com/polar/comatose-engine.git vendor/plugins/comatose_engine
-</code></pre>
+    ** Using git, make a shallow clone of the comatose_engine repository:
+      <pre><code>
+      $ git clone --depth 1 git://github.com/polar/comatose-engine.git vendor/plugins/comatose_engine
+      </code></pre>
 
-## If you want to keep your comatose_engine plugin up to date using git, you'll have to add it as a submodule ("http://www.kernel.org/pub/software/scm/git/docs/user-manual.html#submodules":http://www.kernel.org/pub/software/scm/git/docs/user-manual.html#submodules)
-<pre><code>
-git submodule add git://github.com/polar/comatose-engine.git vendor/plugins/comatose_engine
-git submodule init
-git submodule update
-</code></pre>
+    ** If you want to keep your comatose_engine plugin up to date using git, you'll have to add it as a submodule       ("http://www.kernel.org/pub/software/scm/git/docs/user-manual.html#submodules":http://www.kernel.org/pub/software/scm/git/docs/user-manual.html#submodules)
+      <pre><code>
+      git submodule add git://github.com/polar/comatose-engine.git vendor/plugins/comatose_engine
+      git submodule init
+      git submodule update
+      </code></pre>
 
-## Make sure you rename your CE directory to `comatose_engine` (note the underscore) if it isn't named that for some reason
+      ** Make sure you rename your CE directory to `comatose_engine` (note the underscore) if it isn't named that for some reason
 
 # Create your database and modify your `config/database.yml` appropriately.
 
 # Delete public/index.html (if you haven't already)
 
 # Modify your environment.rb as indicated below:
-<pre><code>
-  ##environment.rb should look something like this:
-RAILS_GEM_VERSION = '2.2.2' unless defined? RAILS_GEM_VERSION
-require File.join(File.dirname(__FILE__), 'boot')
-require File.join(File.dirname(__FILE__), '../vendor/plugins/engines/boot')
+  <pre><code>
+    ##environment.rb should look something like this:
+  RAILS_GEM_VERSION = '2.2.2' unless defined? RAILS_GEM_VERSION
+  require File.join(File.dirname(__FILE__), 'boot')
+  require File.join(File.dirname(__FILE__), '../vendor/plugins/engines/boot')
 
-Rails::Initializer.run do |config|
-  config.plugins = [:engines, :comatose_engine, :all]
-  config.plugin_paths += ["#{RAILS_ROOT}/vendor/plugins/comatose_engine/engine_plugins"]
+  Rails::Initializer.run do |config|
+    config.plugins = [:engines, :comatose_engine, :all]
+    config.plugin_paths += ["#{RAILS_ROOT}/vendor/plugins/comatose_engine/engine_plugins"]
 
-  ... Your stuff here ...
-end
+    ... Your stuff here ...
+  end
 
-# Include your application configuration below
-require "#{RAILS_ROOT}/vendor/plugins/comatose_engine/engine_config/boot.rb"
-</code></pre>
+  # Include your application configuration below
+  require "#{RAILS_ROOT}/vendor/plugins/comatose_engine/engine_config/boot.rb"
+  </code></pre>
 
 # Modify your routes.rb as indicated below:
-<pre><code>
-# If you want default routes from the plugin add this after any of your own
-# existing routes, but before the default rails routes:
-map.from_plugin :comatose_engine
-# Otherwise, follow the Comatose Description for routes.
-# map.resources "page_photos"
-# map.comatose_admin
-# map.comatose_root "home"
+  <pre><code>
+  # If you want default routes from the plugin add this after any of your own
+  # existing routes, but before the default rails routes:
+  map.from_plugin :comatose_engine
+  # Otherwise, follow the Comatose Description for routes.
+  # map.resources "page_photos"
+  # map.comatose_admin
+  # map.comatose_root "home"
 
-# Install the default routes as the lowest priority. 
-map.connect ':controller/:action/:id'
-map.connect ':controller/:action/:id.:format'
-</code></pre>
+  # Install the default routes as the lowest priority. 
+  map.connect ':controller/:action/:id'
+  map.connect ':controller/:action/:id.:format'
+  </code></pre>
 
 # Generate the comatose engine migrations:
-<pre><code>
-$ script/generate plugin_migration
-</code></pre>
+  <pre><code>
+  $ script/generate plugin_migration
+  </code></pre>
 
 # From the command line:
-<pre><code>
-$ rake db:migrate
-</code></pre>
+  <pre><code>
+  $ rake db:migrate
+  </code></pre>
 
 # You may need to change these lines in application_controller.rb (if you're not using cookie sessions):
-<pre><code>
-# See ActionController::RequestForgeryProtection for details
-# Uncomment the :secret if you're not using the cookie session store
-protect_from_forgery # :secret => 'your_secret_string'
-</code></pre>
+  <pre><code>
+  # See ActionController::RequestForgeryProtection for details
+  # Uncomment the :secret if you're not using the cookie session store
+  protect_from_forgery # :secret => 'your_secret_string'
+  </code></pre>
 
-Run tests (remember, you must run `rake test` before you can run the comatose\_engine tests):
-<pre><code>
-    $ rake test
-		$ rake comatose_engine:test
-</code></pre>
+# Run tests (remember, you must run `rake test` before you can run the comatose\_engine tests):
+  <pre><code>
+      $ rake test
+  		$ rake comatose_engine:test
+  </code></pre>
 
-Start your server and check out your site!
-<pre><code>
-		$ mongrel_rails start
-		or
-		$ ./script/server
-</code></pre>
+# Start your server and check out your site!
+  <pre><code>
+  		$ mongrel_rails start
+  		or
+  		$ ./script/server
+  </code></pre>
 
 You should be able to browse to http://127.0.0.1:3000/comatose_admin and start adding pages to your CMS.<br />
 Browsing to http://127.0.0.1:3000/ will render your comatose pages if routing doesn't match any of your controllers.
