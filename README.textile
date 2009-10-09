@@ -69,7 +69,7 @@ h3. Getting ComatoseEngine Running
     RAILS_GEM_VERSION = '2.2.2' unless defined? RAILS_GEM_VERSION
     require File.join(File.dirname(__FILE__), 'boot')
     require File.join(File.dirname(__FILE__), '../vendor/plugins/engines/boot')
-    
+  <pre><code>
     Rails::Initializer.run do |config|
       config.plugins = [:engines, :comatose_engine, :all]
       config.plugin_paths += ["#{RAILS_ROOT}/vendor/plugins/comatose_engine/engine_plugins"]
