@@ -83,7 +83,8 @@ h3. Getting ComatoseEngine Running
    If you want default routes from the plugin add this after any of your own existing routes, but before the default rails routes:
    <pre><code>map.from_plugin :comatose_engine</code></pre>
    Otherwise, follow the Comatose Description for routes.
-   <pre><code>#map.resources "page_photos"
+   <pre><code>
+     #map.resources "page_photos"
      #map.comatose_admin
      #map.comatose_root "home"
      #Install the default routes as the lowest priority. 
