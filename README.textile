@@ -107,14 +107,14 @@ h3. Getting ComatoseEngine Running
     #Uncomment the :secret if you're not using the cookie session store
     protect_from_forgery # :secret => 'your_secret_string'
   </code></pre>
-# Run tests (remember, you must run `rake test` before you can run the comatose\_engine tests):
+# Run tests (remember, you must run 'rake test' before you can run the comatose_engine tests):
   <pre><code>
     $ rake test
-    $ rake comatose\_engine:test
+    $ rake comatose_engine:test
   </code></pre>
 # Start your server and check out your site!
   <pre><code>
-    $ mongrel\_rails start
+    $ mongrel_rails start
     or
     $ ./script/server
   </code></pre>
