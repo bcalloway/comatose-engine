@@ -66,7 +66,8 @@ h3. Getting ComatoseEngine Running
 # Delete public/index.html (if you haven't already)
 # Modify your environment.rb as indicated below:
   <pre><code>
-    RAILS_GEM_VERSION = '2.2.2' unless defined? RAILS_GEM_VERSION
+    RAILS_GEM_VERSION = '2.3.4' unless defined? RAILS_GEM_VERSION
+    #
     require File.join(File.dirname(__FILE__), 'boot')
     require File.join(File.dirname(__FILE__), '../vendor/plugins/engines/boot')
     #
@@ -75,7 +76,7 @@ h3. Getting ComatoseEngine Running
       config.plugin_paths += ["#{RAILS_ROOT}/vendor/plugins/comatose_engine/engine_plugins"]
       ... Your stuff here ...
     end
-    
+    #
     #Include your application configuration below
     require "#{RAILS_ROOT}/vendor/plugins/comatose_engine/engine_config/boot.rb"
   </code></pre>
@@ -109,11 +110,11 @@ h3. Getting ComatoseEngine Running
 # Run tests (remember, you must run `rake test` before you can run the comatose\_engine tests):
   <pre><code>
     $ rake test
-    $ rake comatose_engine:test
+    $ rake comatose\_engine:test
   </code></pre>
 # Start your server and check out your site!
   <pre><code>
-    $ mongrel_rails start
+    $ mongrel\_rails start
     or
     $ ./script/server
   </code></pre>
