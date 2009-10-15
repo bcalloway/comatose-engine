@@ -25,6 +25,8 @@ class AddComatoseSupport < ActiveRecord::Migration
       t.string     "author",      :limit => 255
       t.integer    "position",    :default => 0
       t.integer    "version"
+      t.string     "state"
+      t.integer    "role-id"
       t.date       "created_on"
       t.date       "updated_on"
       t.timestamps

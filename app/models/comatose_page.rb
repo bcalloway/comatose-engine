@@ -25,6 +25,7 @@ class ComatosePage < ActiveRecord::Base
   acts_as_versioned :table_name=>'comatose_page_versions',
                     :if_changed =>
                       [:title, :slug, :keywords, :body]
+  self.non_versioned_columns << 'state'
 
   define_option :active_mount_info, {:root => '', :index => ''}
 
