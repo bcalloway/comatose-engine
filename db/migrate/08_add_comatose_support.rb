@@ -16,7 +16,7 @@ class AddComatoseSupport < ActiveRecord::Migration
   def self.up
     create_table :comatose_pages, :force => true do |t|
       t.integer    "parent_id"
-      t.text       "full_path",   :default => ''
+      t.text       "full_path",   :default => ""
       t.string     "title",       :limit => 255
       t.string     "slug",        :limit => 255
       t.string     "keywords",    :limit => 255
@@ -40,7 +40,8 @@ class AddComatoseSupport < ActiveRecord::Migration
         :body   => File.open(
                  File.join(RAILS_ROOT, "vendor" , "plugins", "comatose_engine",
                            "UserManual.textile")).read,
-        :author => 'System' )
+        :author => 'System'.
+        :state => "approved" )
   end
 
   def self.down
