@@ -26,6 +26,7 @@ class ComatosePage < ActiveRecord::Base
                     :if_changed =>
                       [:title, :slug, :keywords, :body]
   self.non_versioned_columns << 'state'
+  self.non_versioned_columns << 'role_id'
 
   define_option :active_mount_info, {:root => '', :index => ''}
 
