@@ -37,25 +37,13 @@ module Comatose
     attr_accessor_with_default :helpers,              []
     attr_accessor_with_default :includes,             []
     attr_accessor_with_default :allow_import_export,  true
-    # 0.8
-    attr_accessor_with_default :page_photo,  { "attachment_fu_options" => {
-                                 "storage" => "file_system",
-                                 "max_size" => 3.megabytes,
-                                 "resize_to" => "465>",
-                                 "min_size" => 1,
-                                 "thumbnails" => {
-                                   "thumb" => '45x45!',
-                                   "small" => '100x100>',
-                                   "medium" => '200x200>',
-                                   "large" => '630x630>' },
-                                   "content_type" => [
-                                     'image/jpg',
-                                     'image/jpeg',
-                                     'image/pjpeg',
-                                     'image/gif',
-                                     'image/png',
-                                     'image/x-png'],
-                                "processor" => "Rmagick" } }
+                                
+    # Custom rules to hide functions from users
+    attr_accessor_with_default :allow_clear_cache,    true
+    attr_accessor_with_default :allow_more_link,      true
+    attr_accessor_with_default :allow_reordering,     true
+    attr_accessor_with_default :allow_add_child,      true
+    attr_accessor_with_default :allow_delete,         true
 
     # 'Blockable' setters
     blockable_attr_accessor    :authorization

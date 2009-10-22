@@ -11,7 +11,9 @@ h3. What's different in this fork
 * Comatose-Rake-n-Bake, to autogenerate page structure based on Freemind Mind Map, "http://github.com/scullygroup/Comatose-Rake-n-Bake":http://github.com/scullygroup/Comatose-Rake-n-Bake
 
 *Note:*
-AASM and Role-based authorization are not currently implemented, however the database columns are present if you would like to use those systems.  For an example application currently using this, check out "http://github.com/scullygroup/scully-rails-template":http://github.com/scullygroup/scully-rails-template
+AASM and Role-based authorization are not currently implemented in this fork, however the database columns are present if you would like to use those systems.  For an example application currently using this, check out "http://github.com/scullygroup/scully-rails-template":http://github.com/scullygroup/scully-rails-template
+
+Also, there are a few custom options included that can be specified in the configure block in your environment.  Options include allow/disallow delete, allow/disallow add child, allow/disallow reordering, etc.  See the included CONFIG file as an example.
 
 h3. Documentation
 
