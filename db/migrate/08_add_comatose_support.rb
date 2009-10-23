@@ -26,7 +26,7 @@ class AddComatoseSupport < ActiveRecord::Migration
       t.integer    "position",    :default => 0
       t.integer    "version"
       t.string     "state"
-      t.integer    "role-id"
+      t.integer    "role_id"
       t.date       "created_on"
       t.date       "updated_on"
       t.timestamps
