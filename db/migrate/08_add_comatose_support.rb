@@ -43,7 +43,7 @@ class AddComatoseSupport < ActiveRecord::Migration
         :body   => File.open(
                  File.join(RAILS_ROOT, "vendor" , "plugins", "comatose_engine",
                            "UserManual.textile")).read,
-        :author => 'System'.
+        :author => 'System',
         :state => "approved" )
   end
 
