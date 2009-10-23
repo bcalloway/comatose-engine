@@ -36,6 +36,7 @@ class AddComatoseSupport < ActiveRecord::Migration
     ComatosePage.create_versioned_table
     puts "Creating the default 'Home Page'..."
     ComatosePage.create(
+        :full_page => '',
         :title  => 'Home Page',
         :body   => File.open(
                  File.join(RAILS_ROOT, "vendor" , "plugins", "comatose_engine",
