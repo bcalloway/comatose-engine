@@ -32,9 +32,6 @@ class AddComatoseSupport < ActiveRecord::Migration
       t.timestamps
       t.references "author_user"
     end
-
-    add_index :comatose_pages, [:parent_id, :role_id]
-    add_index :comatose_page_versions, [:comatose_page_id, :parent_id]
     
     ComatosePage.create_versioned_table
     puts "Creating the default 'Home Page'..."
@@ -45,6 +42,9 @@ class AddComatoseSupport < ActiveRecord::Migration
                            "UserManual.textile")).read,
         :author => 'System',
         :state => "approved" )
+    
+    add_index :comatose_pages, [:parent_id, :role_id]
+    add_index :comatose_page_versions, [:comatose_page_id, :parent_id]
   end
 
   def self.down
