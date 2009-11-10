@@ -8,7 +8,7 @@
           Title
       %td.field
         = f.text_field :title, :tabindex => 1, :maxlength => 255, :size => 50
-        - if cms_admin && Comatose.config.allow_more_link
+        - if Comatose.config.allow_more_link
           = link_to_function "More...", "ComatoseEditForm.toggle_extra_fields(this)", :id => 'more-options'
     %tr#slug_row.meta-info
       %td.label
